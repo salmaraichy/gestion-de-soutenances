@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_gestion_soutenance" model="ir.actions.act_window">
+        <field name="name">Soutenances</field>
+        <field name="res_model">gestion.soutenance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu principal -->
+    <menuitem id="menu_gestion_soutenance_root" name="Soutenances" sequence="10"/>
+
+    <!-- Sous-menu -->
+    <menuitem id="menu_gestion_soutenance_list"
+        name="Gestion des Soutenances"
+        parent="menu_gestion_soutenance_root"
+        action="action_gestion_soutenance"
+        sequence="10"/>
+
+    <!-- Vue liste -->
+    <record id="view_gestion_soutenance_tree" model="ir.ui.view">
+        <field name="name">gestion.soutenance.tree</field>
+        <field name="model">gestion.soutenance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="etudiant"/>
+                <field name="encadrant"/>
+                <field name="date_soutenance"/>
+                <field name="statut"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue formulaire -->
+    <record id="view_gestion_soutenance_form" model="ir.ui.view">
+        <field name="name">gestion.soutenance.form</field>
+        <field name="model">gestion.soutenance</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="etudiant"/>
+                        <field name="encadrant"/>
+                        <field name="date_soutenance"/>
+                        <field name="salle"/>
+                        <field name="statut"/>
+                    </group>
+                    <group>
+                        <field name="description" widget="html"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
